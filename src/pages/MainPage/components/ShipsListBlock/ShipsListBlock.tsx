@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { SHIPS } from "../../../../apollo/ships";
+import ShipListItem from "../ShipListItem/ShipListItem";
+import { ShipListBox } from "./styles";
 import { vehicles } from "../../../../interface";
 
 const ShipsListBlock = () => {
@@ -15,11 +17,12 @@ const ShipsListBlock = () => {
     return <main>ошибочка</main>;
   }
   const vehicles = data.vehicles;
-  console.log(vehicles);
   return (
-    <section>
-    
-    </section>
+    <ShipListBox>
+      {vehicles.map((item: vehicles) => (
+        <ShipListItem data={item} />
+      ))}
+    </ShipListBox>
   );
 };
 
