@@ -3,6 +3,7 @@ import { SHIPS } from "../../../../apollo/ships";
 import ShipListItem from "../ShipListItem/ShipListItem";
 import { ShipListBox } from "./styles";
 import { vehicles } from "../../../../interface";
+import { Pagination } from "../Pagination/Pagination.tsx";
 
 const ShipsListBlock = () => {
   const { data, loading, error } = useQuery(SHIPS);
@@ -16,11 +17,13 @@ const ShipsListBlock = () => {
   if (error) {
     return <main>ошибочка</main>;
   }
-  const vehicles = data.vehicles;
+  const vehicles: vehicles[] = data.vehicles;
+  console.log(vehicles);
   return (
     <ShipListBox>
-      {vehicles.map((item: vehicles) => (
-        <ShipListItem data={item} />
+      <Pagination data={vehicles} countPerPage={10} />
+      {vehicles.map((item, index) => (
+        <ShipListItem key={index} data={item} />
       ))}
     </ShipListBox>
   );

@@ -4,6 +4,7 @@ export const SHIPS = gql`
     vehicles {
       title
       description
+      name
       icons {
         large
         medium

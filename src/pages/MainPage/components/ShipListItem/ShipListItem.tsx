@@ -15,7 +15,6 @@ interface ShipListItemProps {
 }
 
 const ShipListItem = ({ data }: ShipListItemProps) => {
-  console.log(data);
   return (
     <Container>
       <Card>
