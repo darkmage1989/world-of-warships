@@ -18,7 +18,6 @@ const ShipsListBlock = () => {
     return <main>ошибочка</main>;
   }
   const vehicles: vehicles[] = data.vehicles;
-  console.log(vehicles);
   return (
     <ShipListBox>
       <Pagination data={vehicles} countPerPage={10} />
